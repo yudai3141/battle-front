@@ -1,0 +1,29 @@
+.battleList {
+    flex: 6;
+    padding: 20px;
+  }
+  
+  .battleItem {
+    width: 100%;
+    box-shadow: 0px 15px 3px -5px #a28b8b;
+    border-radius: 16px;
+    margin: 20px 0;
+    padding: 10px;
+    transition: all 0.3s;
+  }
+  
+  .battleItem:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+  
+  .battleDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .battleDate {
+    font-size: 12px;
+    color: gray;
+  }

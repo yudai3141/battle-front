@@ -1,12 +1,23 @@
 import React, { useContext } from 'react'
 import {Chat, Notifications, Search} from "@mui/icons-material"
 import "./Topbar.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../state/AuthContext"
 
 export default function Topbar() {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-    const {user} = useContext(AuthContext);
+    const {user, dispatch} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // ユーザー状態をnullにリセット
+        dispatch({ type: 'LOGOUT' });
+        // ローカルストレージからユーザー情報を削除
+        localStorage.removeItem('user');
+        // ログインページに遷移
+        navigate('/login');
+      };
+
   return (
     <div className='topbarContainer'>
         <div className='topbarLeft'>
@@ -31,8 +42,11 @@ export default function Topbar() {
                     <span className='topbarIconBadge'>2</span>
                 </div>
                 <Link to={`/profile/${user.username}`}>
-                <img src={ user.profilePicture ? PUBLIC_FOLDER + user.profilePicture : PUBLIC_FOLDER + "/person/noAvatar.png" } alt="" className='topbarImage' />
+                    <img src={ user.profilePicture ? PUBLIC_FOLDER + user.profilePicture : PUBLIC_FOLDER + "/person/noAvatar.png" } alt="" className='topbarImage' />
                 </Link>
+                <button className='logoutButton' onClick={handleLogout}>
+                    ログアウト
+                </button>
             </div>
         </div>
     </div>

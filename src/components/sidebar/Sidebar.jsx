@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Bookmark, Home, MessageRounded, Notifications, Person, Search, Settings} from '@mui/icons-material';
 import './Sidebar.css';
 import CloseFriend from '../closeFriend/CloseFriend';
 import { Users } from '../../dummyData'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../state/AuthContext';
 
 function Sidebar() {
+    const { user } = useContext(AuthContext); // 追加
   return (
     <div className='sidebar'>
         <div className="sidebarWrapper">
@@ -23,7 +25,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/'>
+                    <Link to='/notifications' style={{ textDecoration: "none", color: 'black' }}>
                         <Notifications className="sidebarIcon" />
                         <span className="sidebarListItemText">通知</span>
                     </Link>
@@ -35,13 +37,13 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/'>
-                        <Bookmark className="sidebarIcon" />
-                        <span className="sidebarListItemText">ブックマーク</span>
+                    <Link to='/battles' style={{ textDecoration: "none", color: 'black' }}>
+                    <Bookmark className="sidebarIcon" />
+                    <span className="sidebarListItemText">レスバトル一覧</span>
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/profile/yudai' style={{ textDecoration: "none", color: 'black'}}>   
+                    <Link to={`/profile/${user.username}`} style={{ textDecoration: "none", color: 'black'}}>   
                         <Person className="sidebarIcon" /> 
                         <span className="sidebarListItemText">プロフィール</span>
                     </Link>

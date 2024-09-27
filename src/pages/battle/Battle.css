@@ -1,0 +1,54 @@
+.battleContainer {
+    display: flex;
+    width: 100%;
+  }
+  
+  .battleLeft {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .battleRight {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .myMessage,
+  .opponentMessage {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .myMessage {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+  }
+  
+  .opponentMessage {
+    background-color: #f8d7da;
+    align-self: flex-start;
+  }
+  
+  .battleActions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .battleActions textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .battleActions button {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .battleResult {
+    margin-top: 20px;
+  }
