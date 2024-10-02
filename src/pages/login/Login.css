@@ -77,8 +77,19 @@
 
 .loginRegisterButton {
     height: 50px;
-    width: 60%;
+    text-align: center;
     align-self: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #3c8b50;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.font {
+
     border-radius: 10px;
     border: none;
     background-color: #3c8b50;

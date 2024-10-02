@@ -92,7 +92,7 @@ export default function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${user.username}`}>
+            <Link to={`/profile/${user.username}`}>
               <img
                 src={
                   user.profilePicture
@@ -111,8 +111,10 @@ export default function Post({ post }) {
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{post.desc}</span>
-          <img className="postImage" src={PUBLIC_FOLDER + post.img} alt="" />
+          <Link to={`/posts/${post._id}`}>
+            <span className="postText">{post.desc}</span>
+            <img className="postImage" src={PUBLIC_FOLDER + post.img} alt="" />
+          </Link>
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

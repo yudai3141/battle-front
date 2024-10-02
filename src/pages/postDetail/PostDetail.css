@@ -1,0 +1,22 @@
+.postDetail {
+    display: flex;
+    width: 100%;
+    background-color: #f8fcff;
+}
+
+.main{
+    display:flex;
+    flex-flow: column;
+}
+
+.challengeSection{
+    
+}
+
+.main {
+    flex: 6;
+}
+
+.mainWrapper {
+    padding: 20px;
+}
