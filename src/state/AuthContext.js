@@ -7,6 +7,7 @@ const initialState = {
   user: JSON.parse(localStorage.getItem('user')) || null,
   isFetching: false,
   error: false,
+  redcard: false,
 };
 
 // 状態をグローバルに管理する
@@ -30,6 +31,7 @@ export const AuthContextProvider = ({ children }) => {
         user: state.user,
         isFetching: state.isFetching,
         error: state.error,
+        redcard: state.redcard,
         dispatch,
       }}
     >

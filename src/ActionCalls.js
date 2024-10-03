@@ -17,3 +17,11 @@ export const loginCall = async(user, dispatch) => {
         });
     }
 };
+
+export const exclude = async(user, dispatch) => {
+    const response = await axios.get("users/",user)
+    dispatch({
+        type: "LOGIN_BAN",
+        payload: user
+    });
+}

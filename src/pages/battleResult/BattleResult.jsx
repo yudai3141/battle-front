@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Topbar from '../../components/topbar/Topbar'
@@ -6,12 +6,14 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import Timeline from '../../components/timeline/Timeline'
 import Rightbar from '../../components/rightbar/Rightbar'
 import './BattleResult.css';
+import { AuthContext } from '../../state/AuthContext';
 
 function BattleResult() {
   const { battleId } = useParams();
   const [result, setResult] = useState(null);
   const [post, setPost] = useState(null);
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user,isFetching,error,redcard,dispatch } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchResult = async () => {
@@ -19,6 +21,7 @@ function BattleResult() {
         const res = await axios.get(`/battles/${battleId}/process`);
         setResult(res.data); 
         console.log(result);
+        
       } catch (err) {
         console.error(err);
       }

@@ -7,12 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 function Login() {
     const email = useRef();
     const password = useRef();
-    const { user,isFetching,error,dispatch } = useContext(AuthContext);
+    const { user,isFetching,error,redcard,dispatch } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(email.current.value);
         // console.log(password.current.value);
+        
         loginCall(
             {
                 email: email.current.value,
@@ -20,6 +21,9 @@ function Login() {
             },
             dispatch
         );
+        // if (user.redcard) {
+        //     navigate('/Banned'); // redcardページにリダイレクト
+        // }
     };
 
     console.log(user);

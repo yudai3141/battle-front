@@ -12,3 +12,8 @@ export const LoginError = (user) => ({
     type: "LOGIN_ERROR",
     payload: error,
 });
+
+export const LoginBan = (user) => ({
+    type: "LOGIN_BAN",
+    payload: user,
+});
