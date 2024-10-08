@@ -32,8 +32,8 @@ function Login() {
     <div className='login'>
         <div className="loginWrapper">
             <div className="loginLeft">
-                <h3 className='loginLogo'>Real SNS</h3>
-                <span className="loginDesc">本格的なSNSを自分の手で</span>
+                <h3 className='loginLogo'>Battle'n'Chu</h3>
+                <span className="loginDesc">誤情報のない世界へ</span>
             </div>
             <div className="loginRight">
                 <form className="loginBox" onSubmit={(e) => handleSubmit(e)}>

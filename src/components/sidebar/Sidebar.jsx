@@ -19,7 +19,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/' >
+                    <Link to='/' style={{ textDecoration: "none", color: 'black'}}>
                         <Search className="sidebarIcon" />
                         <span className="sidebarListItemText">検索</span>
                     </Link>
@@ -31,7 +31,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/'>
+                    <Link to='/' style={{ textDecoration: "none", color: 'black'}}>
                         <MessageRounded className="sidebarIcon" />
                         <span className="sidebarListItemText">メッセージ</span>
                     </Link>
@@ -49,18 +49,18 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li className="sidebarListItem">
-                    <Link to='/'>
+                    <Link to='/' style={{ textDecoration: "none", color: 'black'}}>
                         <Settings className="sidebarIcon" />
                         <span className="sidebarListItemText">設定</span>
                     </Link>
                 </li>
             </ul>
-            <hr className="sidebarHr" />
+            {/* <hr className="sidebarHr" />
             <ul className="sidebarFriendList">
                 {Users.map((user) => (
                     <CloseFriend user={user} key={user.id}/>
                 ))}
-            </ul>
+            </ul> */}
         </div>
         
     </div>

@@ -1,130 +1,133 @@
-.rightbar {
-    flex: 3.5;
-}
-
-.rightbarWrapper {
-    padding: 20px 20px 0 0;
-}
-
-.eventContainer {
+/* .rateRankingRightbar {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  .rateRankingTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .rateRankingList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .rateRankingItem {
     display: flex;
     align-items: center;
-}
-
-.starImage {
+    margin-bottom: 10px;
+  }
+  
+  .rateRankingPosition {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .rateRankingLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .rateRankingImage {
     width: 40px;
     height: 40px;
-    margin-right: 5px;
-}
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .rateRankingName {
+    font-weight: 500;
+  }
+  
+  .rateRankingScore {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: bold;
+  } */
 
-.eventText {
-    font-weight: 300;
-    font-size: 15px;
-}
-
-.eventImage {
-    width: 100%;
+  .rateRankingRightbar {
+    padding: 20px;
+    background-color: #f9f9f9; /* 画像の背景色に合わせた淡いグレー */
     border-radius: 10px;
-    margin: 25px 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 影をつける */
+    flex: 2.5;
+    height: 400px;
+    margin-top: 40px;
 }
 
-.rightbarTitle {
-    margin-bottom: 20px;
+.rateRankingTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333; /* 文字色を調整 */
 }
 
-.rightbarFriendList {
-    padding: 0;
-    margin: 0;
+.rateRankingList {
     list-style: none;
+    padding: 0;
 }
 
-.rightbarFriend {
+.rateRankingItem {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* ホバー時の効果 */
 }
 
-.rightbarProfileImgContainer {
+.rateRankingItem:hover {
+    background-color: #f0f0f0;
+}
+
+.rateRankingPosition {
+    font-weight: bold;
     margin-right: 10px;
-    position: relative;
+    color: #000000; /* 文字色を調整 */
 }
 
-.rightbarProfileImage {
+/* 上位3位までを強調 */
+.rateRankingItem:nth-child(1) {
+    background-color: #e1c87e; /* 水色系 */
+}
+
+.rateRankingItem:nth-child(2) {
+    background-color: #d9d9d4; /* クリーム色系 */
+}
+
+.rateRankingItem:nth-child(3) {
+    background-color: #bb997f; /* 薄いピンク系 */
+}
+
+
+.rateRankingLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000000; /* 文字色を調整 */
+}
+
+.rateRankingImage {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
 }
 
-.rightbarUsername {
-    font-weight: 550;
-}
-
-.rightbarOnline {
-    background-color: purple;
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    top: -2px;
-    left: 0;
-    border: 2px solid white;
-}
-
-.promotionTitle {
-    font-size: 18px;
-    font-weight: 550;
-    margin-bottom: -10px;
-}
-
-.rightbarPromotionImage {
-    width: 85%;
-    border-radius: 10px;
-    margin: 25px 0;
-}
-
-.promotionName {
-    font-size: small;
-    color: #434343;
-    margin-top: -20px;
-}
-
-.rightbarTitle {
-    font-size: 18px;
-    font-weight: 550;
-    margin-bottom: 10px;
-}
-
-.rightbarInfo {
-    margin-bottom: 30px;
-}
-
-.rightbarInfoKey {
+.rateRankingName {
     font-weight: 500;
-    margin-right: 5px;
-    color: #555;
 }
 
-.rightbarInfoItem {
-    margin-bottom: 10px;
-}
-
-.rightbarFollowings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.rightbarFollowing {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.rightbarFollowingImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    object-fit: cover;
+.rateRankingScore {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000; /* 文字色を調整 */
 }

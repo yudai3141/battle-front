@@ -22,7 +22,7 @@ export default function Topbar() {
     <div className='topbarContainer'>
         <div className='topbarLeft'>
             <Link to='/' style={{ textDecoration: "none"}}>
-            <span className='logo'> Real SNS </span>
+            <span className='logo'> Battle'n'Chu </span>
             </Link>
         </div>
         <div className="topbarCenter">

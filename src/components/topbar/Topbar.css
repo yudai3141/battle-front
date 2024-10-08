@@ -1,5 +1,5 @@
 .topbarContainer {
-    background-color: #2c517c;
+    background-color: #502200;
     height: 50px;
     width: 100%;
     display: flex;
@@ -10,14 +10,20 @@
 }
 
 .topbarLeft {
-    flex: 3;
+    flex: 1.5;
+    
+    
 }
 
 .logo {
-    font-size: 24px;
-    color: white;
+    font-size: 40px;
+    color: #FFFFFF;
     font-weight: bold;
     margin-left: 20px;
+    position: relative;
+    top: 10px; /* 親要素から下に10px移動 */
+    vertical-align: bottom; /* 文字を下に揃える */
+    font-family: "Academy Engraved LET";
 }
 
 .topbarCenter {
@@ -26,10 +32,11 @@
 
 .searchbar {
     width: 100%;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 5px;
     display: flex;
     align-items: center;
+    margin-right: 150px;
 }
 
 .searchIcon {
@@ -48,11 +55,12 @@
 }
 
 .topbarRight {
-    flex: 4;
+    flex: 2;
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: space-around;
-    color: white;
+    color: #f9f6ec;
+    margin-left: 50px;
 }
 
 .topbarItemIcons {
@@ -71,7 +79,7 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: #db6ab9;
+    background-color: #c09933;
     width: 15px;
     height: 15p;
     border-radius: 50%;
@@ -90,3 +98,24 @@
     object-fit: color;
 }
 
+.logoutButton {
+    /* ボタンの背景色 */
+  background-color: #f9f6ec; /* 緑色 */
+  /* 文字色 */
+  color: black;
+  font-weight: bold;
+  /* ボーダー */
+  border: none;
+  /* 角丸 */
+  border-radius: 10px;
+  /* パディング */
+  padding: 10px 20px;
+
+  margin-left: 20px;
+  
+  /* カーソル */
+  cursor: pointer;
+  /* ホバー時の効果 */
+  &:hover {
+    background-color: #7f6422; /* 暗めの緑色 */
+}}

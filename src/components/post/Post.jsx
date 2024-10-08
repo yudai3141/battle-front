@@ -110,12 +110,14 @@ export default function Post({ post }) {
             <MoreVert />
           </div>
         </div>
+        <Link to={`/posts/${post._id}` } style={{ textDecoration: "none", color: 'black'}}>
         <div className="postCenter">
-          <Link to={`/posts/${post._id}`}>
+          
             <span className="postText">{post.desc}</span>
             <img className="postImage" src={PUBLIC_FOLDER + post.img} alt="" />
-          </Link>
+          
         </div>
+        </Link>
         <div className="postBottom">
           <div className="postBottomLeft">
             <img

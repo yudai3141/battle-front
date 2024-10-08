@@ -5,6 +5,11 @@ import { AuthContext } from '../../state/AuthContext';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Battle.css';
+import Topbar from '../../components/topbar/Topbar'
+import Sidebar from '../../components/sidebar/Sidebar'
+import Timeline from '../../components/timeline/Timeline'
+import Rightbar from '../../components/rightbar/Rightbar'
+import Post from '../../components/post/Post'
 
 function Battle() {
   const { user } = useContext(AuthContext);
@@ -14,6 +19,7 @@ function Battle() {
   const [message, setMessage] = useState('');
   const [posts, setPosts] = useState([]); // スレッドの投稿リスト
   const [rounds, setRounds] = useState([]); // ディベートのラウンドリスト
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     
@@ -21,12 +27,14 @@ function Battle() {
       try {
         const res = await axios.get(`/battles/${battleId}`);
         setBattle(res.data);
+        const re = await axios.get(`/posts/${res.data.postId}`);
+        setPost(re.data)
 
         // バトルのラウンドを取得
         const roundsRes = await axios.get(`/battles/${battleId}/rounds`);
         setRounds(roundsRes.data);
 
-        // スレッドの投稿を取得（必要に応じて）
+        // スレッドの投稿を取得（必要に応じて）s
         // const postThread = await fetchPostThread(res.data.postId);
         // setPosts(postThread);
       } catch (err) {
@@ -92,62 +100,71 @@ function Battle() {
   }, [battle, navigate, battleId]);
 
   return (
-    <div className='battleContainer'>
-      <div className='battleRight'>
-        {/* ディベートの表示 */}
-        <h2>レスバトル</h2>
-        {rounds.map((round) => (
-          <div
-            key={round._id}
-            className={round.speakerId._id === user._id ? 'myMessage' : 'opponentMessage'}
-          >
-            <p>
-              <strong>{round.speakerId.username}:</strong> {round.content}
-            </p>
+    <>
+      <Topbar />
+      <div className='battleContainer'>
+        <Sidebar />
+        <div className='battleMain'>
+          <h2 className='battleTitle'>レスバトル</h2>
+          <div className='originalPost'>
+              <h3>元のポスト</h3>
+              {post && <Post post={post} key={post._id} />}
+              {!post && <p>投稿の取得中です...</p>}
+            </div>
+          <div className='battleRounds'>
+            {rounds.map((round) => (
+              <div
+                key={round._id}
+                className={`battleRound ${
+                  round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
+                }`}
+              >
+                <div className='roundHeader'>
+                  <strong>{round.speakerId.username}:</strong>
+                </div>
+                <div className='roundContent'>{round.content}</div>
+              </div>
+            ))}
           </div>
-        ))}
-
-        {/* バトルが終了していない場合のみ表示 */}
-        {!battle?.isFinished && (
-          <div className='battleActions'>
-            {/* 次の発言者が自分かどうかを確認 */}
-            {isUserTurn() ? (
-              <>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder='メッセージを入力...'
-                  maxLength={500}
-                />
-                <button onClick={handleSendMessage}>送信</button>
-                <button onClick={handleSurrender}>降参</button>
-              </>
-            ) : (
-              <p>相手の投稿を待っています...</p>
-            )}
-          </div>
-        )}
-
-        {/* バトルが終了している場合 */}
-        {battle?.isFinished && (
-          <div className='battleResult'>
-            <h3>バトルが終了しました。</h3>
-            {battle.winnerId ? (
-              <p>
-                勝者:{' '}
-                {battle.winnerId === user._id
-                  ? 'あなた'
-                  : battle.winnerId === battle.initiatorId._id
-                  ? battle.initiatorId.username
-                  : battle.opponentId.username}
-              </p>
-            ) : (
-              <p>勝者: 判定中</p>
-            )}
-          </div>
-        )}
+          {!battle?.isFinished && (
+            <div className='battleActions'>
+              {isUserTurn() ? (
+                <>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder='メッセージを入力...'
+                    maxLength={500}
+                  />
+                  <button onClick={handleSendMessage}>送信</button>
+                  <button onClick={handleSurrender}>降参</button>
+                </>
+              ) : (
+                <p>相手の投稿を待っています...</p>
+              )}
+            </div>
+          )}
+          {battle?.isFinished && (
+            <div className='battleResult'>
+              <h3>バトルが終了しました。</h3>
+              {battle.winnerId ? (
+                <p>
+                  勝者:{' '}
+                  {battle.winnerId === user._id
+                    ? 'あなた'
+                    : battle.winnerId === battle.initiatorId._id
+                    ? battle.initiatorId.username
+                    : battle.opponentId.username}
+                </p>
+              ) : (
+                <p>勝者: 判定中</p>
+              )}
+            </div>
+          )}
+        </div>
+        <Rightbar />
       </div>
-    </div>
+    </>
   );
 }
 

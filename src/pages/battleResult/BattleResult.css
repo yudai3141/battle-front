@@ -1,3 +1,117 @@
-.battleResultContainer{
+.battleResultContainer {
     display: flex;
-}
+    padding: 20px;
+    background-color: #f9f6ec;
+  }
+  
+  .main {
+    flex: 6; /* 倍にする */
+    margin-left: 40px;
+    margin-right: 40px
+  }
+  
+  .winnerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .winnerProfileCard {
+    display: flex;
+    align-items: center;
+    padding: 30px; /* 余白を拡大 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 90%; /* 幅を拡大 */
+    margin-bottom: 30px; /* 余白を追加 */
+  }
+  
+  .winnerProfileImage {
+    width: 120px; /* 画像サイズを拡大 */
+    height: 120px; /* 同じく拡大 */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px; /* 余白を追加 */
+  }
+  
+  .winnerInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .winnerUsername {
+    font-size: 2em; /* フォントサイズを拡大 */
+    font-weight: bold;
+  }
+  
+  .reason {
+    font-size: 1.2em; /* 理由のフォントサイズを拡大 */
+    color: #666;
+  }
+  
+  .parentPostSection {
+    width: 90%; /* 幅を拡大 */
+    margin-top: 30px;
+  }
+  
+  .parentPostCard {
+    padding: 20px; /* パディングを拡大 */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .parentPostCard p {
+    margin: 0;
+    font-size: 1.5em; /* 親ポスト内容のフォントサイズを拡大 */
+    color: #333;
+  }
+  
+  .parentPostCard small {
+    display: block;
+    margin-top: 12px; /* 余白を調整 */
+    font-size: 1.1em; /* 投稿者情報のフォントサイズを拡大 */
+    color: #777;
+  }
+
+  .battleRounds {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .battleRound {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .battleRound:hover {
+    transform: scale(1.02);
+  }
+  
+  .myRound {
+    background-color: #f9f9f9;
+    border-left: 5px solid #28a745;
+  }
+  
+  .opponentRound {
+    background-color: #f9f9f9;
+    border-left: 5px solid #dc3545;
+  }
+  
+  .roundHeader {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .roundContent {
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+  
