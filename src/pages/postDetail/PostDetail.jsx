@@ -84,7 +84,7 @@ function PostDetail() {
             <h2>{post.title}</h2>
             <p>{post.content}</p> */}
 
-            {/* 自分以外の投稿にのみバトルを申し込める */}
+            {/* 自分以外の投稿にのみバトルを申し込める
             {user._id.toString() !== (post.userId._id ? post.userId._id.toString() : post.userId.toString()) && (
               <div className='challengeSection'>
                 <textarea
@@ -94,15 +94,15 @@ function PostDetail() {
                 />
                 <button onClick={handleChallenge}>レスバトルを申し込む</button>
               </div>
-            )}
+            )} */}
             {replys && replys.map((post) => (
               <Post post={post} key={post._id} />
             ))}
           </div>
         </div>
         <div className='right'>
-          <Rightbar user={user} />
         </div>
+        <Rightbar user={user} />
       </div>
     </>
   );

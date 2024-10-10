@@ -1,21 +1,16 @@
 .postDetail {
     display: flex;
-    width: 100%;
+    flex: 6;
     background-color: #f9f6ec;
 }
 
 .main{
     display:flex;
     flex-flow: column;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-.challengeSection{
-    
-}
-
-.main {
-    flex: 6;
-}
 
 .mainWrapper {
     padding: 20px;
