@@ -1,117 +1,162 @@
 .battleResultContainer {
-    display: flex;
-    padding: 20px;
-    background-color: #f9f6ec;
-  }
-  
-  .main {
-    flex: 6; /* 倍にする */
-    margin-left: 40px;
-    margin-right: 40px
-  }
-  
-  .winnerSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .winnerProfileCard {
-    display: flex;
-    align-items: center;
-    padding: 30px; /* 余白を拡大 */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    width: 90%; /* 幅を拡大 */
-    margin-bottom: 30px; /* 余白を追加 */
-  }
-  
-  .winnerProfileImage {
-    width: 120px; /* 画像サイズを拡大 */
-    height: 120px; /* 同じく拡大 */
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 30px; /* 余白を追加 */
-  }
-  
-  .winnerInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .winnerUsername {
-    font-size: 2em; /* フォントサイズを拡大 */
-    font-weight: bold;
-  }
-  
-  .reason {
-    font-size: 1.2em; /* 理由のフォントサイズを拡大 */
-    color: #666;
-  }
-  
-  .parentPostSection {
-    width: 90%; /* 幅を拡大 */
-    margin-top: 30px;
-  }
-  
-  .parentPostCard {
-    padding: 20px; /* パディングを拡大 */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .parentPostCard p {
-    margin: 0;
-    font-size: 1.5em; /* 親ポスト内容のフォントサイズを拡大 */
-    color: #333;
-  }
-  
-  .parentPostCard small {
-    display: block;
-    margin-top: 12px; /* 余白を調整 */
-    font-size: 1.1em; /* 投稿者情報のフォントサイズを拡大 */
-    color: #777;
-  }
+  display: flex;
+  padding: 20px;
+  background-color: #f9f6ec;
+}
 
-  .battleRounds {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .battleRound {
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .battleRound:hover {
-    transform: scale(1.02);
-  }
-  
-  .myRound {
-    background-color: #f9f9f9;
-    border-left: 5px solid #28a745;
-  }
-  
-  .opponentRound {
-    background-color: #f9f9f9;
-    border-left: 5px solid #dc3545;
-  }
-  
-  .roundHeader {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  .roundContent {
-    font-size: 1.1em;
-    line-height: 1.5;
-  }
-  
+.main {
+  flex: 6;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.winnerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 130px;
+  margin-left: 30px;
+}
+
+.winnerProfileCard {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  width: 100%; /* 両端に揃えるため */
+  margin-bottom: 30px;
+}
+
+.winnerProfileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+.winnerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.winnerUsername {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.reason {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.parentPostSection {
+  width: 90%;
+  margin-top: 30px;
+}
+
+.parentPostCard {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.parentPostCard p {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.battleRounds {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.battleRound {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease-in-out;
+}
+
+.battleRound:hover {
+  transform: scale(1.02);
+}
+
+.myRound {
+  background-color: #f9f9f9;
+  border-left: 5px solid #28a745;
+}
+
+.opponentRound {
+  background-color: #f9f9f9;
+  border-left: 5px solid #dc3545;
+}
+
+/* 引き分け時の表示 */
+.tieSection {
+  text-align: center;
+  margin-top: 50px;
+  background-color: #f9f9f9; /* 背景色を設定 */
+  border: 1px solid #e0e0e0; /* 境界線 */
+  border-radius: 10px; /* 角を丸める */
+  padding: 20px; /* 内側の余白 */
+  margin-right: 100px;
+}
+
+.tieMessageContainer {
+  position: relative;
+}
+
+.tieMessage {
+  font-size: 2em;
+  font-weight: bold;
+  color: #888;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1; /* 他の要素より前面に */
+}
+
+.tieMessage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 80%;
+  z-index: 0; /* メッセージの背面に */
+  transform: translateX(-50%);
+  border-radius: 10px; /* 角を丸める */
+}
+
+.tieReasonContainer {
+  background-color: #f0f4ff; /* 背景色 */
+  border: 2px solid #3f51b5; /* 境界線の色 */
+  border-radius: 8px; /* 角を丸める */
+  padding: 15px; /* 内側の余白 */
+  margin-top: 10px; /* 上のマージン */
+}
+
+.tieReasonTitle {
+  font-size: 1.5em; /* タイトルのフォントサイズ */
+  font-weight: bold; /* 太字 */
+  color: #3f51b5; /* タイトルの色 */
+  margin-bottom: 5px; /* 下のマージン */
+}
+
+.tieReason {
+  font-size: 1.2em; /* 理由のフォントサイズ */
+  color: #333; /* 理由の色 */
+}
+
+.loadingMessage {
+  font-size: 1.2em;
+  color: #999;
+}

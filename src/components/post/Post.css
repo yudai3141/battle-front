@@ -76,3 +76,33 @@
     font-size: 15px;
     margin-right: 3px;
 }
+
+.battleButton {
+    background-color: #502200; /* オレンジ系の色 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .battleButton:hover {
+    background-color: #2f1808;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .buttonText {
+    font-weight: bold;
+  }
+
+  .battleTextarea {
+    width: 97%;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+  }

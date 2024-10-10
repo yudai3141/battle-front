@@ -38,41 +38,89 @@ function BattleResult() {
   }
 
   return (
-    // <>
-    // <Topbar />
-    // <div className='battleResultContainer'>
-    //   <Sidebar />
-    //   <div className='main'>
-    //     <h2>バトル結果</h2>
-    //     {result.winnerId ? (
-    //       <div className='winnerSection'>
-    //         <p>勝者:</p>
-    //         <img
-    //           src={
-    //             result.winnerProfilePicture
-    //               ? PUBLIC_FOLDER + result.winnerProfilePicture
-    //               : PUBLIC_FOLDER + '/person/noAvatar.png'
-    //           }
-    //           alt={result.winnerUsername}
-    //           className='winnerProfileImage'
-    //         />
-    //         <p className='winnerUsername'>{result.winnerUsername}</p>
-    //         <p>理由: {result.reason}</p>
-    //       </div>
-    //     ) : (
-    //       <p>引き分けです。</p>
-    //     )}
-    //   </div>
-    //   <Rightbar/>
-    // </div>
-    // </>
-    <>
+  //     <>
+  //   <Topbar />
+  //   <div className="battleResultContainer">
+  //     <Sidebar />
+  //     <div className="main">
+  //       <h2>バトル結果</h2>
+  //       {result.winnerId ? (
+  //         <div className="winnerSection">
+  //           <div className="winnerProfileCard">
+  //             <img
+  //               src={
+  //                 result.winnerProfilePicture
+  //                   ? PUBLIC_FOLDER + result.winnerProfilePicture
+  //                   : PUBLIC_FOLDER + "/person/noAvatar.png"
+  //               }
+  //               alt={result.winnerUsername}
+  //               className="winnerProfileImage"
+  //             />
+  //             <div className="winnerInfo">
+  //               {/* <p className="winnerUsername">{result.winnerUsername}</p> */}
+  //               <p className="winnerUsername">{result.winnerUsername}</p>
+  //               {/* <p className="reason">理由: {result.reason}</p> */}
+  //               {result.reason ? (
+  //                 <p className="reason">{result.reason}</p>
+  //               ) : (
+  //                 <p className="reason">理由の受信中です...</p>
+  //               )}
+  //             </div>
+  //           </div>
+  //           {/* 親ポストの情報表示 */}
+  //           <div className="parentPostSection">
+  //             <h3>元ポスト/レスバトル</h3>
+  //             <div className="parentPostCard">
+  //               {/* <p>{parentPost.content}</p> */}
+  //               <p>
+  //                 <Post post={result.start_post} key={result.start_post_key} />
+  //                 {result.start_post_key !== result.parent_post_key && (
+  //                   <Post post={result.parent_post} key={result.parent_post_key} />
+  //                 )}
+  //               </p>
+  //               {rounds.map((round) => (
+  //               <div
+  //                 key={round._id}
+  //                 className={`battleRound ${
+  //                   round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
+  //                 }`}
+  //               >
+  //                 <Link to={`/profile/${round.speakerId.username}`} style={{ textDecoration: "none", color: 'black'}}>
+  //                 <div className='roundHeader'>
+  //                   <strong>{round.speakerId.username}:</strong>
+  //                 </div>
+  //                 <div className='roundContent'>{round.content}</div>
+  //                 </Link>
+  //               </div>
+  //             ))}
+  //             </div>
+  //           </div>
+  //         </div>
+  //       ) : (
+  //         <p>引き分けです。</p>
+  //       )}
+  //     </div>
+  //     <Rightbar />
+  //   </div>
+  // </>
+
+  <>
   <Topbar />
   <div className="battleResultContainer">
     <Sidebar />
     <div className="main">
       <h2>バトル結果</h2>
-      {result.winnerId ? (
+      {result.reason && result.pel === '2' ? (
+        <div className="tieSection">
+          <div className="tieMessageContainer">
+            <p className="tieMessage">勝者なし。</p>
+            <div className="tieReasonContainer">
+              <p className="tieReasonTitle">理由:</p>
+              <p className="tieReason">{result.reason}</p>
+            </div>
+          </div>
+        </div>
+      ) : result.winnerId ? (
         <div className="winnerSection">
           <div className="winnerProfileCard">
             <img
@@ -85,9 +133,7 @@ function BattleResult() {
               className="winnerProfileImage"
             />
             <div className="winnerInfo">
-              {/* <p className="winnerUsername">{result.winnerUsername}</p> */}
               <p className="winnerUsername">{result.winnerUsername}</p>
-              {/* <p className="reason">理由: {result.reason}</p> */}
               {result.reason ? (
                 <p className="reason">{result.reason}</p>
               ) : (
@@ -95,42 +141,48 @@ function BattleResult() {
               )}
             </div>
           </div>
-          {/* 親ポストの情報表示 */}
-          <div className="parentPostSection">
-            <h3>元ポスト/レスバトル</h3>
-            <div className="parentPostCard">
-              {/* <p>{parentPost.content}</p> */}
-              <p>
-                <Post post={result.start_post} key={result.start_post_key} />
-                {result.start_post_key !== result.parent_post_key && (
-                  <Post post={result.parent_post} key={result.parent_post_key} />
-                )}
-              </p>
-              {rounds.map((round) => (
-              <div
-                key={round._id}
-                className={`battleRound ${
-                  round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
-                }`}
-              >
-                <Link to={`/profile/${round.speakerId.username}`} style={{ textDecoration: "none", color: 'black'}}>
-                <div className='roundHeader'>
-                  <strong>{round.speakerId.username}:</strong>
-                </div>
-                <div className='roundContent'>{round.content}</div>
-                </Link>
-              </div>
-            ))}
-            </div>
-          </div>
         </div>
       ) : (
-        <p>引き分けです。</p>
+        <p>勝者なし。</p>
       )}
+
+      {/* 引き分け時でも元ポストとレスバトルは表示 */}
+      <div className="parentPostSection">
+        <h3>元ポスト/レスバトル</h3>
+        <div className="parentPostCard">
+          <p>
+            <Post post={result.start_post} key={result.start_post_key} />
+            {result.start_post_key !== result.parent_post_key && (
+              <Post post={result.parent_post} key={result.parent_post_key} />
+            )}
+          </p>
+          {rounds.map((round) => (
+            <div
+              key={round._id}
+              className={`battleRound ${
+                round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
+              }`}
+            >
+              <Link
+                to={`/profile/${round.speakerId.username}`}
+                style={{ textDecoration: 'none', color: 'black' }}
+              >
+                <div className="roundHeader">
+                  <strong>{round.speakerId.username}:</strong>
+                </div>
+                <div className="roundContent">{round.content}</div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
     <Rightbar />
   </div>
 </>
+
+
+
 
   );
 }

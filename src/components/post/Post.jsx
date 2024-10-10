@@ -151,7 +151,7 @@ export default function Post({ post }) {
         </form>
         )}
         {/* レスバトルラン */}
-        {currentUser._id !== post.userId && !post.battleRequested && ( // フラグで表示を制御
+        {currentUser._id !== post.userId && post.battleRequested && ( // フラグで表示を制御
           <div className="battleSection">
             <textarea
               value={message}
@@ -160,7 +160,7 @@ export default function Post({ post }) {
               className="battleTextarea"
             />
             <button className="battleButton" onClick={handleBattleRequest}>
-              レスバトルを申し込む
+              <span className="buttonText"> レスバトル挑む！</span>
             </button>
           </div>
         )}
