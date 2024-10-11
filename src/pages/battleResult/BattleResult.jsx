@@ -9,6 +9,9 @@ import Post from '../../components/post/Post'
 import './BattleResult.css';
 import { AuthContext } from '../../state/AuthContext';
 import { Link, useNavigate } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 function BattleResult() {
   const { battleId } = useParams();
@@ -34,7 +37,99 @@ function BattleResult() {
   }, [battleId]);
 
   if (!result) {
-    return <div>Loading...</div>;
+    return (
+      <>
+      <Topbar />
+      <div className="battleResultContainer">
+        <Sidebar />
+        <div className="main">
+          <h2>バトル結果</h2>
+          <div className='loading'>
+          <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+              }}
+            >
+              <CircularProgress 
+              size={80} 
+              sx={{ color: '#502200' }}
+              />
+            </Box>
+          </div>
+          {/* {result.reason && result.pel === '2' ? (
+            <div className="tieSection">
+              <div className="tieMessageContainer">
+                <p className="tieMessage">勝者なし。</p>
+                <div className="tieReasonContainer">
+                  <p className="tieReasonTitle">理由:</p>
+                  <p className="tieReason">{result.reason}</p>
+                </div>
+              </div>
+            </div>
+          ) : result.winnerId ? (
+            <div className="winnerSection">
+              <div className="winnerProfileCard">
+                <img
+                  src={
+                    result.winnerProfilePicture
+                      ? PUBLIC_FOLDER + result.winnerProfilePicture
+                      : PUBLIC_FOLDER + "/person/noAvatar.png"
+                  }
+                  alt={result.winnerUsername}
+                  className="winnerProfileImage"
+                />
+                <div className="winnerInfo">
+                  <p className="winnerUsername">{result.winnerUsername}</p>
+                  {result.reason ? (
+                    <p className="reason">{result.reason}</p>
+                  ) : (
+                    <p className="reason">理由の受信中です...</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <p>勝者なし。</p>
+          )} */}
+
+          {/* 引き分け時でも元ポストとレスバトルは表示 */}
+          {/* <div className="parentPostSection"> */}
+            {/* <h3>元ポスト/レスバトル</h3> */}
+            {/* <div className="parentPostCard"> */}
+              {/* <p>
+                <Post post={result.start_post} key={result.start_post_key} />
+                {result.start_post_key !== result.parent_post_key && (
+                  <Post post={result.parent_post} key={result.parent_post_key} />
+                )}
+              </p>
+              {rounds.map((round) => (
+                <div
+                  key={round._id}
+                  className={`battleRound ${
+                    round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
+                  }`}
+                >
+                  <Link
+                    to={`/profile/${round.speakerId.username}`}
+                    style={{ textDecoration: 'none', color: 'black' }}
+                  >
+                    <div className="roundHeader">
+                      <strong>{round.speakerId.username}:</strong>
+                    </div>
+                    <div className="roundContent">{round.content}</div>
+                  </Link>
+                </div>
+              ))} */}
+            {/* </div> */}
+          {/* </div> */}
+        </div>
+        <Rightbar />
+      </div>
+    </>
+    )
   }
 
   return (

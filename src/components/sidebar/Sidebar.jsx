@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import {Bookmark, Home, MessageRounded, Notifications, Person, Search, Settings} from '@mui/icons-material';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import './Sidebar.css';
 import CloseFriend from '../closeFriend/CloseFriend';
 import { Users } from '../../dummyData'
@@ -38,7 +39,7 @@ function Sidebar() {
                 </li>
                 <li className="sidebarListItem">
                     <Link to='/battles' style={{ textDecoration: "none", color: 'black' }}>
-                    <Bookmark className="sidebarIcon" />
+                    <LocalFireDepartmentIcon className="sidebarIcon" />
                     <span className="sidebarListItemText">レスバトル一覧</span>
                     </Link>
                 </li>

@@ -13,7 +13,7 @@
     display: flex;
 }
 
-.loginLeft,
+.loginLeft  ,
 .loginRight {
     flex: 1;
     display: flex;
@@ -24,7 +24,7 @@
 .loginLogo {
     font-size: 50px;
     font-weight: 800;
-    color: #c09933;
+    color: #502200 !important;
     margin-bottom: 10px;
 }
 
@@ -61,7 +61,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: #c09933;
+    background-color: #502200 !important;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -70,7 +70,7 @@
 
 .loginForgot {
     text-align: center;
-    color: #41428b;
+    color: #502200 !important;
     margin: 15px 0;
     cursor: pointer;
 }
@@ -81,7 +81,7 @@
     align-self: center;
     border-radius: 10px;
     border: none;
-    background-color: #3c8b50;
+    background-color: #502200 !important;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -92,7 +92,7 @@
 
     border-radius: 10px;
     border: none;
-    background-color: #3c8b50;
+    background-color: #502200 !important;
     color: white;
     font-size: 20px;
     font-weight: 500;
