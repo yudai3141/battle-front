@@ -255,7 +255,7 @@ function BattleResult() {
             <div
               key={round._id}
               className={`battleRound ${
-                round.speakerId._id === user._id ? 'myRound' : 'opponentRound'
+                round.roundNumber % 2 === 0 ? 'myRound' : 'opponentRound'
               }`}
             >
               <Link
